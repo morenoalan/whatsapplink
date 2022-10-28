@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WhatsApp Link</title>
     <meta name='description' content='Gerador de link para WhatsApp' />
     <meta name='keywords' content='WhatsApp link, Wpp link, gerador de link' />
@@ -11,7 +11,7 @@
 	<link rel='shortcut icon' href='' alt='whatsapplink-logo' />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin='crossorigin' />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900" rel="stylesheet" />
     <link rel='stylesheet' type='text/css' href='./style.css' />
 </head>
 <body>
@@ -24,22 +24,27 @@
     <main>
         <ul>
             <li>
-                <label>Telefone:</label>
-                <input type='number' placeholder='(##) 9 ####-####' />
+                <label for='phone'>TELEFONE:</label>
+                <div id='phone'>
+                    <svg id="flag-br" class='flag' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480"><g stroke-width="1pt"><path fill="#229e45" fill-rule="evenodd" d="M0 0h640v480H0z"/><path fill="#f8e509" fill-rule="evenodd" d="m321.4 436 301.5-195.7L319.6 44 17.1 240.7 321.4 436z"/><path fill="#2b49a3" fill-rule="evenodd" d="M452.8 240c0 70.3-57.1 127.3-127.6 127.3A127.4 127.4 0 1 1 452.8 240z"/><path fill="#fff" fill-rule="evenodd" d="M444.4 285.8a124.6 124.6 0 0 0 5.8-19.8c-67.8-59.5-143.3-90-238.7-83.7a124.5 124.5 0 0 0-8.5 20.9c113-10.8 196 39.2 241.4 82.6z"/></g></svg>
+                    <input id='phone-number' type='tel' required='required' placeholder='(DDD) 00000-0000' autofocus='autofocus'/>
             </li>
             <li>
-                <label>Mensagem:</label>
-                <textarea placeholder='Se desejar, digite uma mensagem de contato aqui'></textarea>
+                <label for='message'>MENSAGEM:</label>
+                <textarea id='message' placeholder='Se desejar, insira uma mensagem para início de conversa'></textarea>
             </li>
             <li>
-                <button>Gerar link</button>
-                <div>Resultado</div>
-                <button>Copiar</button>
+                <button class='button' onclick='genLink();'>GERAR LINK</button>
+                <div id='result-box' class='textboard display-none'>
+                    <p id='resulting-link'><a href='https://wa.me/5500000000000?text=Testando+envio+de+texto:%0aAssista+Loki+na+Disney%2B%0aGarantia+100%25+de+diversão+%F0%9F%98%85' target='_blank'>https://wa.me/5500000000000?text=Testando+envio+de+texto:%0aAssista+Loki+na+Disney%2B%0aGarantia+100%25+de+diversão+%F0%9F%98%85</a></p>
+                    <button class='material-icon' onclick='getCopy();'><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
+                </div>
             </li>
         </ul>
     </main>
     <footer id='footer'>
 		<p><a id='author' href='https://www.github.com/morenoalan' target='_blank'>Alan Moreno</a> <span class='invert-horizontal'>&#169;</span> <span id='copyleft-year'>2022</span> | <a href='https://www.github.com/morenoalan/whatsapplink' target='_blank'>Repositório</a></p>
 	</footer>
+    <script type='text/javascript' id='script' src='./script.js'></script>
 </body>
 </html>

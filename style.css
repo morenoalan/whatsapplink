@@ -3,6 +3,16 @@
     padding: 0px;
     user-select: none;
     touch-action: none;
+    border: none;
+    outline: none;
+}
+:root {
+    --color-green-one: #1E6F5C;
+    --color-green-two: #29BB89;
+    --color-gray-one:#999;
+    --color-gray-two:#BBB;
+    --color-white: #FFFAFA;
+    --font-size: 14px;
 }
 html, body {
     margin: 0;
@@ -11,34 +21,34 @@ html, body {
     overflow: auto;
 }
 body {
-    background-image: linear-gradient(#1E6F5C, #29BB89);
+    background-image: linear-gradient(var(--color-green-one), var(--color-green-two));
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     font-family: 'Roboto', sans-serif;
+    font-size: var(--font-size);
 }
 header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 20px 0 30px 0;
+    margin: 20px 0 20px 0;
     flex-wrap: wrap;
-    color: #FEFFDE;
+    color: var(--color-white);
 }
 header > figure {
     display: flex;
     justify-content: flex-end;
 }
 header > figure > svg {
-    fill: #FEFFDE;
+    fill: var(--color-white);
     height: 80px;
     width: 80px;
 }
 h1 {
-    justify-self: center;
-    align-self: center;
+    text-align: center;
     font-weight: 700;
     font-size: 30px;
     line-height: 30px;
@@ -50,29 +60,129 @@ main {
     align-items: center;
     height: 100%;
     width: 350px;
-    outline: none;
-    border: none;
     border-radius: 20px 20px 0 0;
-    background-color: #FEFFDE;
-    color: #1E6F5C;
+    background-color: var(--color-white);
 }
 main > * {
     width: 300px;
+}
+main * {
+    max-width: 300px;
+    background-color: var(--color-white);
+    color: var(--color-green-one);
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--font-size);
+    font-weight: 500;
+    text-decoration: none;
 }
 ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 20px;
+    margin-top: 25px;
+}
+ul > * {
+    margin-bottom: 12px;
 }
 li {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
+label {
+    margin-bottom: 2px;
+    color: var(--color-green-two);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+#phone {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 5px;
+    border-left: 5px solid var(--color-green-two);
+    border-radius: 5px;
+    padding-bottom: 0;
+}
+.flag {
+    margin-bottom: 0;
+    height: 20px;
+}
+input {
+    margin-bottom: 0;
+    margin-left: 5px;
+    height: 30px;
+    font-size: 20px;
+    outline: none;
+    width: 100%;
+}
 textarea {
     height: 60px;
+    width: auto;
+    resize: none;
+    padding-top: 5px;
+    padding-left: 5px;
+    border-left: 5px solid var(--color-green-two);
+    border-radius: 5px;
+    overflow: hidden;
+}
+*::placeholder {
+    color: var(--color-gray-two);
+}
+.button {
+    background-color: var(--color-green-two);
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px var(--color-gray-two);
+    margin-bottom: 12px;
+}
+.button:hover {
+    filter: blur(80%);
+}
+.button:active {
+    box-shadow: 0 2px var(--color-gray-one);
+    transform: translateY(1px);
+}
+.textboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 5px;
+    border-left: 5px solid var(--color-green-two);
+    border-radius: 5px;
+    border-right: 0;
+    background-color: transparent;
+    width: 290px;
+}
+#resulting-link {
+    width: 266px;
+    height: 100%;
+}
+#resulting-link > a {
+    word-wrap: break-word;
+}
+.material-icon {
+    background-color: transparent;
+    cursor: pointer;
+}
+.material-icon > svg {
+    background-color: transparent;
+    fill: var(--color-gray-two);
+}
+.material-icon:hover > svg {
+    fill: var(--color-gray-one);
+}
+.material-icon:active {
+    transform: translateY(1px);
 }
 footer {
     display: flex;
@@ -80,15 +190,13 @@ footer {
     align-items: center;
     padding: 20px 0 10px 0;
     width: 350px;
-    background-color: #FEFFDE;
+    background-color: var(--color-white);
 }
-footer > p {
-    color: #1E6F5C;
+footer * {
+    color: var(--color-green-one);
     font-family: 'Roboto', sans-serif;
-}
-footer > p > a {
+    font-size: 12px;
     text-decoration: none;
-    color: #1E6F5C;
 }
 .invert-horizontal {
     display: inline-block;
