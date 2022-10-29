@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WhatsApp Link</title>
     <meta name='description' content='Gerador de link para WhatsApp' />
-    <meta name='keywords' content='WhatsApp link, Wpp link, gerador de link' />
+    <meta name='keywords' content='WhatsApp link, Wpp link, gerador de link para WhatsApp' />
     <meta name='author' content='github.com/morenoalan' />
 	<link rel='shortcut icon' href='' alt='whatsapplink-logo' />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,6 +15,12 @@
     <link rel='stylesheet' type='text/css' href='./style.css' />
 </head>
 <body>
+    <noscript>
+		<br />
+		You need to enable JavaScript to run this app.<br />
+        Você precisa ativar o JavaScript para executar esta aplicação.<br />
+		<br />
+    </noscript>
     <header>
         <figure>
             <svg fill="#000000" fill-rule="evenodd" height="480px" id="material-filled-whatsapp" viewBox="0 0 32 32" width="480px" xmlns="http://www.w3.org/2000/svg"><path d="M 24.503906 7.503906 C 22.246094 5.246094 19.246094 4 16.050781 4 C 9.464844 4 4.101563 9.359375 4.101563 15.945313 C 4.097656 18.050781 4.648438 20.105469 5.695313 21.917969 L 4 28.109375 L 10.335938 26.445313 C 12.078125 27.398438 14.046875 27.898438 16.046875 27.902344 L 16.050781 27.902344 C 22.636719 27.902344 27.996094 22.542969 28 15.953125 C 28 12.761719 26.757813 9.761719 24.503906 7.503906 Z M 16.050781 25.882813 L 16.046875 25.882813 C 14.265625 25.882813 12.515625 25.402344 10.992188 24.5 L 10.628906 24.285156 L 6.867188 25.269531 L 7.871094 21.605469 L 7.636719 21.230469 C 6.640625 19.648438 6.117188 17.820313 6.117188 15.945313 C 6.117188 10.472656 10.574219 6.019531 16.054688 6.019531 C 18.707031 6.019531 21.199219 7.054688 23.074219 8.929688 C 24.949219 10.808594 25.980469 13.300781 25.980469 15.953125 C 25.980469 21.429688 21.523438 25.882813 16.050781 25.882813 Z M 21.496094 18.445313 C 21.199219 18.296875 19.730469 17.574219 19.457031 17.476563 C 19.183594 17.375 18.984375 17.328125 18.785156 17.625 C 18.585938 17.925781 18.015625 18.597656 17.839844 18.796875 C 17.667969 18.992188 17.492188 19.019531 17.195313 18.871094 C 16.894531 18.722656 15.933594 18.40625 14.792969 17.386719 C 13.90625 16.597656 13.304688 15.617188 13.132813 15.320313 C 12.957031 15.019531 13.113281 14.859375 13.261719 14.710938 C 13.398438 14.578125 13.5625 14.363281 13.710938 14.1875 C 13.859375 14.015625 13.910156 13.890625 14.011719 13.691406 C 14.109375 13.492188 14.058594 13.316406 13.984375 13.167969 C 13.910156 13.019531 13.3125 11.546875 13.0625 10.949219 C 12.820313 10.367188 12.574219 10.449219 12.390625 10.4375 C 12.21875 10.429688 12.019531 10.429688 11.820313 10.429688 C 11.621094 10.429688 11.296875 10.503906 11.023438 10.804688 C 10.75 11.101563 9.980469 11.824219 9.980469 13.292969 C 9.980469 14.761719 11.050781 16.183594 11.199219 16.382813 C 11.347656 16.578125 13.304688 19.59375 16.300781 20.886719 C 17.011719 21.195313 17.566406 21.378906 18 21.515625 C 18.714844 21.742188 19.367188 21.710938 19.882813 21.636719 C 20.457031 21.550781 21.648438 20.914063 21.898438 20.214844 C 22.144531 19.519531 22.144531 18.921875 22.070313 18.796875 C 21.996094 18.671875 21.796875 18.597656 21.496094 18.445313 Z" fill-rule="evenodd"></path></svg>
@@ -26,8 +32,11 @@
             <li>
                 <label for='phone'>TELEFONE:</label>
                 <div id='phone'>
-                    <svg id="flag-br" class='flag' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480"><g stroke-width="1pt"><path fill="#229e45" fill-rule="evenodd" d="M0 0h640v480H0z"/><path fill="#f8e509" fill-rule="evenodd" d="m321.4 436 301.5-195.7L319.6 44 17.1 240.7 321.4 436z"/><path fill="#2b49a3" fill-rule="evenodd" d="M452.8 240c0 70.3-57.1 127.3-127.6 127.3A127.4 127.4 0 1 1 452.8 240z"/><path fill="#fff" fill-rule="evenodd" d="M444.4 285.8a124.6 124.6 0 0 0 5.8-19.8c-67.8-59.5-143.3-90-238.7-83.7a124.5 124.5 0 0 0-8.5 20.9c113-10.8 196 39.2 241.4 82.6z"/></g></svg>
-                    <input id='phone-number' type='tel' required='required' placeholder='(DDD) 00000-0000' autofocus='autofocus'/>
+                    <button id='select-flag'>
+                        <svg id="flag-br" class='flag' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480"><g stroke-width="1pt"><path fill="#229e45" fill-rule="evenodd" d="M0 0h640v480H0z"/><path fill="#f8e509" fill-rule="evenodd" d="m321.4 436 301.5-195.7L319.6 44 17.1 240.7 321.4 436z"/><path fill="#2b49a3" fill-rule="evenodd" d="M452.8 240c0 70.3-57.1 127.3-127.6 127.3A127.4 127.4 0 1 1 452.8 240z"/><path fill="#fff" fill-rule="evenodd" d="M444.4 285.8a124.6 124.6 0 0 0 5.8-19.8c-67.8-59.5-143.3-90-238.7-83.7a124.5 124.5 0 0 0-8.5 20.9c113-10.8 196 39.2 241.4 82.6z"/></g></svg>
+                    </button>
+                    <input id='phone-number' type='tel' pattern='([0-9]+)' required='required' placeholder='(DDD) 00000-0000' autofocus='autofocus' maxlength='15'/>
+                </div>
             </li>
             <li>
                 <label for='message'>MENSAGEM:</label>
@@ -36,7 +45,7 @@
             <li>
                 <button class='button' onclick='genLink();'>GERAR LINK</button>
                 <div id='result-box' class='textboard display-none'>
-                    <p id='resulting-link'><a href='https://wa.me/5500000000000?text=Testando+envio+de+texto:%0aAssista+Loki+na+Disney%2B%0aGarantia+100%25+de+diversão+%F0%9F%98%85' target='_blank'>https://wa.me/5500000000000?text=Testando+envio+de+texto:%0aAssista+Loki+na+Disney%2B%0aGarantia+100%25+de+diversão+%F0%9F%98%85</a></p>
+                    <p id='p-link'><a id='a-link' href='' target='_blank'></a></p>
                     <button class='material-icon' onclick='getCopy();'><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
                 </div>
             </li>

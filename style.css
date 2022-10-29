@@ -107,6 +107,12 @@ label {
     border-radius: 5px;
     padding-bottom: 0;
 }
+#select-flag {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+}
 .flag {
     margin-bottom: 0;
     height: 20px;
@@ -156,18 +162,18 @@ textarea {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    padding-left: 5px;
+    padding: 5px;
     border-left: 5px solid var(--color-green-two);
     border-radius: 5px;
     border-right: 0;
     background-color: transparent;
     width: 290px;
 }
-#resulting-link {
+#p-link {
     width: 266px;
     height: 100%;
 }
-#resulting-link > a {
+#a-link {
     word-wrap: break-word;
 }
 .material-icon {
