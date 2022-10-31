@@ -9,8 +9,9 @@
 :root {
     --color-green-one: #1E6F5C;
     --color-green-two: #29BB89;
-    --color-gray-one:#999;
-    --color-gray-two:#BBB;
+    --color-red:#FF8282;
+    --color-gray-one: #999999;
+    --color-gray-two:#BBBBBB;
     --color-white: #FFFAFA;
     --font-size: 14px;
 }
@@ -211,4 +212,7 @@ footer * {
 
 .display-none {
     display: none;
+}
+.pointer-events-none {
+    pointer-events: none;
 }
