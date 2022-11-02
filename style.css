@@ -117,6 +117,7 @@ label {
 .flag {
     margin-bottom: 0;
     height: 20px;
+    border-radius: 5px;
 }
 input {
     margin-bottom: 0;
