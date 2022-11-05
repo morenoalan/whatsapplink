@@ -1,4 +1,4 @@
-import { countries } from './countries.js';
+//import { countries } from './countries.js';
 
 function genLink() {
     document.getElementById('a-link').classList.remove('pointer-events-none');
