@@ -21,7 +21,13 @@ function genLink() {
         document.getElementById('button-copy').classList.add('display-none');
         return;
     }
-    let link = 'http://wa.me/55'+phone;
+
+    let flagSelected = document.getElementById('flag').getAttribute('alt');
+    let country = countries.find(item => item.iso2 == flagSelected);
+    let idd = country.idd.replace(/[^\d]/gim, "");
+    
+    let link = 'http://wa.me/'+idd+phone;
+    
     let msg = document.getElementById('message').value;
     if(msg.length > 0) {
         let message = encodeURIComponent(msg);
