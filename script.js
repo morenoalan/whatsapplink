@@ -36,3 +36,10 @@ function getCopy() {
     let link = document.getElementById('p-link').innerText;
     navigator.clipboard.writeText(link);
 }
+
+const inputPhoneNumber = document.getElementById('phone-number');
+inputPhoneNumber.addEventListener('input', updatePhoneNumber);
+function updatePhoneNumber() {
+    let replacePhoneNumber = inputPhoneNumber.value;
+    inputPhoneNumber.value = replacePhoneNumber.replace(/[^\d]/gim, "");
+}
