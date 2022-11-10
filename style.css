@@ -206,13 +206,13 @@ footer * {
     font-size: 12px;
     text-decoration: none;
 }
-.invert-horizontal {
-    display: inline-block;
-    transform: scale(-1, 1);
-}
 
 .display-none {
     display: none;
+}
+.invert-horizontal {
+    display: inline-block;
+    transform: scale(-1, 1);
 }
 .pointer-events-none {
     pointer-events: none;

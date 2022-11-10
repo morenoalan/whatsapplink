@@ -1,10 +1,11 @@
-//import { countries } from './countries.js';
+document.getElementById('copyleft-year').innerHTML =  new Date().getUTCFullYear();
 
 function genLink() {
     document.getElementById('a-link').classList.remove('pointer-events-none');
     document.getElementById('result-box').style.borderLeftColor = 'var(--color-green-two)';
     document.getElementById('result-box').classList.remove('display-none');
     document.getElementById('button-copy').classList.remove('display-none');
+
     let phone = document.getElementById('phone-number').value;
     phone = phone.replace(/([^\d])+/gim, '');
     if(phone.length === 0) {
@@ -43,9 +44,38 @@ function getCopy() {
     navigator.clipboard.writeText(link);
 }
 
-const inputPhoneNumber = document.getElementById('phone-number');
+var inputPhoneNumber = document.getElementById('phone-number');
 inputPhoneNumber.addEventListener('input', updatePhoneNumber);
 function updatePhoneNumber() {
+    var key = event.keyCode || event.charCode;
     let replacePhoneNumber = inputPhoneNumber.value;
-    inputPhoneNumber.value = replacePhoneNumber.replace(/[^\d]/gim, "");
+    let onlyNumbers = replacePhoneNumber.replace(/([^\d])+/gim, '');
+    if(onlyNumbers.length < 2) {
+        console.log("<2");
+        inputPhoneNumber.value = onlyNumbers.replace(/^(\d{2})/gim, '($1)');
+        console.log(replacePhoneNumber);
+    }else if(key == 8 || key == 46 && replacePhoneNumber.indexOf(replacePhoneNumber.length) == ')') {
+        console.log("backspace + )");
+        replacePhoneNumber = replacePhoneNumber.slice(-2);
+        console.log(replacePhoneNumber);
+    }else if(onlyNumbers.length == 2) {
+        console.log("2");
+        replacePhoneNumber = onlyNumbers.replace(/^(\d{2})/gim, '($1)');
+        console.log(replacePhoneNumber);
+    }else if(onlyNumbers.length == 3) {
+        console.log("3");
+        replacePhoneNumber = onlyNumbers.replace(/^(\d{2})(\d{1})/gim, '($1) $2');
+        console.log(replacePhoneNumber);
+    }else if(onlyNumbers.length == 10) {
+        console.log("10");
+        replacePhoneNumber = onlyNumbers.replace(/^(\d{2})(\d{4})(\d{4})/gim, '($1) $2-$3');
+        console.log(replacePhoneNumber);
+    }else if(onlyNumbers.length == 11) {
+        console.log("11");
+        replacePhoneNumber = onlyNumbers.replace(/^(\d{2})(\d{5})(\d{4})/gim, '($1) $2-$3');
+        console.log(replacePhoneNumber);
+    }else{
+        //replacePhoneNumber = onlyNumbers.replace(/^(\d{2})(\d{4})(\d{4})/gim, '($1) $2-$3');
+        console.log(replacePhoneNumber);
+    }
 }
