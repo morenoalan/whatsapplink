@@ -32,9 +32,15 @@
             <li>
                 <label for='phone'>TELEFONE:</label>
                 <div id='phone'>
+                    <!--
                     <button id='select-flag'>
                         <img id='flag' class='flag' src='https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg' alt='BR'/>
                     </button>
+                    -->
+                    <select id='select-flag'>
+                        <option value='+93' data-img_src='https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg'></option>
+                        <option value='+55' data-img_src='https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg' selected='selected'></option>
+                    </select>
                     <input id='phone-number' type='tel' pattern='([0-9]+)' required='required' placeholder='(DDD) 00000-0000' autofocus='autofocus' maxlength='15'/>
                 </div>
             </li>
