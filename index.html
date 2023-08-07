@@ -38,21 +38,24 @@
                     </button>
                     -->
                     <select id='select-flag'>
-                        <option value='+93' data-img_src='https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg'></option>
-                        <option value='+55' data-img_src='https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg' selected='selected'></option>
+                        <option id='flagAF' class='flag' value='+93' data-img_src='https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg' alt='AF'></option>
+                        <option id='flag' class='flag' value='+55' data-img_src='https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg' alt='BR' selected='selected'></option>
                     </select>
-                    <input id='phone-number' type='tel' pattern='([0-9]+)' required='required' placeholder='(DDD) 00000-0000' autofocus='autofocus' maxlength='15'/>
+                    <input id='phone-number' type='tel' pattern='([0-9]+)' required='required' placeholder='(DDD) 00000-0000' autofocus='autofocus' maxlength='15' value='71900000000'/>
                 </div>
             </li>
             <li>
                 <label for='message'>MENSAGEM:</label>
-                <textarea id='message' placeholder='Se desejar, insira uma mensagem para início de conversa'></textarea>
+                <textarea id='message' placeholder='Se desejar, insira uma mensagem para início de conversa'>um texto de exemplo pq é importante ter o que ver na hora de apertar o botão</textarea>
             </li>
             <li>
                 <button class='button' onclick='genLink();'>GERAR LINK</button>
                 <div id='result-box' class='textboard display-none'>
                     <p id='p-link'><a id='a-link' href='' target='_blank'></a></p>
-                    <button id='button-copy' class='material-icon' onclick='getCopy();'><svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#000000'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z'/></svg></button>
+                    <div id='copy-set'>
+                        <p id='copied-msg'>Copiado</p>
+                        <button id='button-copy' class='material-icon' onclick='getCopy();'><svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#000000'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z'/></svg></button>
+                    </div>
                 </div>
                 <div id='test'></div>
             </li>

@@ -24,6 +24,7 @@ function genLink() {
     }
 
     let flagSelected = document.getElementById('flag').getAttribute('alt');
+    console.log(flagSelected.id);
     let country = countries.find(item => item.iso2 == flagSelected);
     let idd = country.idd.replace(/[^\d]/gim, "");
     
