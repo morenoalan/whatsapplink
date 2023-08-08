@@ -49,7 +49,9 @@
                 <textarea id='message' placeholder='Se desejar, insira uma mensagem para início de conversa'>um texto de exemplo pq é importante ter o que ver na hora de apertar o botão</textarea>
             </li>
             <li>
-                <button class='button' onclick='genLink();'>GERAR LINK</button>
+                <button id='generator-button' class='button' onclick='genLink();'>GERAR LINK</button>
+            </li>
+
                 <div id='result-box' class='textboard display-none'>
                     <p id='p-link'><a id='a-link' href='' target='_blank'></a></p>
                     <div id='copy-set'>
@@ -58,7 +60,7 @@
                     </div>
                 </div>
                 <div id='test'></div>
-            </li>
+
         </ul>
     </main>
     <footer id='footer'>

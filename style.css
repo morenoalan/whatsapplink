@@ -145,8 +145,8 @@ textarea {
     color: var(--color-white);
     font-size: 16px;
     font-weight: 900;
-    letter-spacing: 0.5px;
     height: 40px;
+    letter-spacing: 0.5px;
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 3px var(--color-gray-two);
@@ -175,15 +175,15 @@ textarea {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 300px;
+    width: 285.2px;
     height: 100%;
     position: relative;
 }
 #p-link {
     position: absolute;
-    left:0;
+    left: 0;
     width: 266px;
-    height: 100%;
+    height: auto;
 }
 #a-link {
     word-wrap: break-word;
@@ -194,6 +194,9 @@ textarea {
     justify-content: space-between;
     position: absolute;
     right: 0;
+}
+#copied-msg {
+    margin-right: 8px;
 }
 .material-icon {
     background-color: transparent;
