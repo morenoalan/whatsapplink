@@ -183,7 +183,7 @@ textarea {
     position: absolute;
     left: 0;
     width: 266px;
-    height: auto;
+    height: 100px;
 }
 #a-link {
     word-wrap: break-word;
