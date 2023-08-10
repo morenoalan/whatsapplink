@@ -196,6 +196,8 @@ textarea {
     right: 0;
 }
 #copied-msg {
+    border: 1px solid gray;
+    border-radius: 6px;
     margin-right: 8px;
 }
 .material-icon {
