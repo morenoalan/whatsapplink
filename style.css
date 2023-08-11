@@ -196,9 +196,12 @@ textarea {
     right: 0;
 }
 #copied-msg {
-    border: 1px solid gray;
+    padding: 5px 10px 5px 10px;
+    border: transparent;
     border-radius: 6px;
     margin-right: 8px;
+    background-color: #000000;
+    color: #FFFFFF
 }
 .material-icon {
     background-color: transparent;
