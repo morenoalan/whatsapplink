@@ -43,6 +43,11 @@ function genLink() {
 function getCopy() {
     let link = document.getElementById('p-link').innerText;
     navigator.clipboard.writeText(link);
+    document.getElementById('copied-msg').classList.remove('display-none');
+    setInterval( function(){
+        console.log('interval');
+        document.getElementById('copied-msg').classList.add('display-none');
+    }, 5000);
 }
 
 var inputPhoneNumber = document.getElementById('phone-number');
