@@ -44,10 +44,10 @@ function getCopy() {
     let link = document.getElementById('p-link').innerText;
     navigator.clipboard.writeText(link);
     document.getElementById('copied-msg').classList.remove('display-none');
-    setInterval( function(){
-        console.log('interval');
+    setTimeout( function(){
+        console.log('setTimeout');
         document.getElementById('copied-msg').classList.add('display-none');
-    }, 5000);
+    }, 1400);
 }
 
 var inputPhoneNumber = document.getElementById('phone-number');
