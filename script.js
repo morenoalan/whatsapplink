@@ -45,7 +45,6 @@ function getCopy() {
     navigator.clipboard.writeText(link);
     document.getElementById('copied-msg').classList.remove('display-none');
     setTimeout( function(){
-        console.log('setTimeout');
         document.getElementById('copied-msg').classList.add('display-none');
     }, 1400);
 }
