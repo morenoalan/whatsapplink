@@ -249,11 +249,14 @@ option {
     padding-left: 30px;
 }
 .option1 {
-    background-image: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg';
+    background-image: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg';
 }
 .option2 {
-    background-image: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg';
+    background-image: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg';
 }
 .option3 {
     background-image: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_%C3%85land.svg';
+}
+.option4 {
+    background-image: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg';
 }
