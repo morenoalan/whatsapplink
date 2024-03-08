@@ -241,6 +241,11 @@ footer * {
     pointer-events: none;
 }
 
+option > img {
+    width: 10px;
+    height: 10px;
+}
+/*
 option {
     padding: 5px;
     background-repeat: no-repeat;
@@ -709,4 +714,7 @@ option {
 }
 .option154 {
     background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Mozambique.svg";
+}
+.option155 {
+    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg";
 }
