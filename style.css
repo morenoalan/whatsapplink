@@ -137,6 +137,11 @@ textarea {
     border-radius: 5px;
     overflow: hidden;
 }
+
+input,
+textarea {
+    cursor: text;
+}
 *::placeholder {
     color: var(--color-gray-two);
 }
