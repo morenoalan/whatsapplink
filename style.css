@@ -137,11 +137,6 @@ textarea {
     border-radius: 5px;
     overflow: hidden;
 }
-
-input,
-textarea {
-    cursor: text;
-}
 *::placeholder {
     color: var(--color-gray-two);
 }
@@ -245,11 +240,27 @@ footer * {
 .pointer-events-none {
     pointer-events: none;
 }
-
+/*
 option > img {
     width: 10px;
     height: 10px;
 }
+*/
+select {
+    padding: 10px;
+    font-size: 16px;
+}
+option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.flag {
+    width: 24px;
+    height: 16px;
+    margin-right: 10px;
+}
+
 /*
 option {
     padding: 5px;
