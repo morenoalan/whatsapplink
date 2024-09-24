@@ -1,5 +1,67 @@
 document.getElementById('copyleft-year').innerHTML =  new Date().getUTCFullYear();
 
+// Elemento da lista de países
+const selectItems = document.querySelector('#select-items');
+
+// Contagem de países atualmente exibidos
+let countriesLoaded = 20;
+
+// Função para carregar países
+function loadCountries(startIndex, endIndex) {
+    const fragment = document.createDocumentFragment();
+    for (let i = startIndex; i < endIndex && i < countries.length; i++) {
+        const countryDiv = document.createElement('div');
+        countryDiv.setAttribute('data-value', countries[i].name.toLowerCase());
+        countryDiv.innerHTML = `<img src="${countries[i].flag}" alt="${countries[i].name} Flag">${countries[i].name}`;
+        fragment.appendChild(countryDiv);
+    }
+    selectItems.appendChild(fragment);
+
+    // Adiciona evento para alterar o item selecionado e fechar a lista
+    selectItems.querySelectorAll('div').forEach(function (item) {
+        item.addEventListener('click', function () {
+            let selected = document.querySelector('#select-selected');
+            selected.innerHTML = this.innerHTML;
+            selectItems.classList.remove('select-show'); // Esconde a lista após a seleção
+        });
+    });
+}
+
+// Carrega os primeiros 20 países
+loadCountries(0, 20);
+
+// Adiciona evento de rolagem
+selectItems.addEventListener('scroll', function () {
+    if (selectItems.scrollTop + selectItems.clientHeight >= selectItems.scrollHeight - 100) {
+        if (countriesLoaded < countries.length) {
+            loadCountries(countriesLoaded, countriesLoaded + 20);
+            countriesLoaded += 20;
+        }
+    }
+});
+// Abrir/fechar a lista ao clicar no elemento selecionado
+document.querySelector('#select-selected').addEventListener('click', function() {
+    let items = document.querySelector('#select-items');
+    items.classList.toggle('select-show'); // Mostra ou esconde as opções
+});
+
+// Alterar o item selecionado e fechar a lista
+document.querySelectorAll('#select-items div').forEach(function(item) {
+    item.addEventListener('click', function() {
+        let selected = document.querySelector('#select-selected');
+        selected.innerHTML = this.innerHTML; // Atualiza o conteúdo do selecionado
+        document.querySelector('#select-items').classList.remove('select-show'); // Esconde a lista após a seleção
+    });
+});
+
+// Fechar a lista ao clicar fora
+document.addEventListener('click', function(event) {
+    const selectBox = document.querySelector('#country-selection');
+    if (!selectBox.contains(event.target)) {
+        document.querySelector('#select-items').classList.remove('select-show');
+    }
+});
+
 function genLink() {
     document.getElementById('a-link').classList.remove('pointer-events-none');
     document.getElementById('result-box').style.borderLeftColor = 'var(--color-green-two)';

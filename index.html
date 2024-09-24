@@ -28,57 +28,31 @@
         <h1>Gerador de Link<br />para WhatsApp</h1>
     </header>
     <main>
-        <ul>
-            <li>
-                <label for='phone'>TELEFONE:</label>
-                <div id='phone'>
-                    <!--
-                    <button id='select-flag'>
-                        <img id='flag' class='flag' src='https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg' alt='BR'/>
-                    </button>
-                    -->
-                    <select id="country" name="country">
-                        <option value="brazil">
-                            <img src="https://flagcdn.com/w20/br.png" class="flag" alt="Brazil Flag">Brazil
-                        </option>
-                        <option value="usa">
-                            <img src="https://flagcdn.com/w20/us.png" class="flag" alt="USA Flag">United States
-                        </option>
-                        <option value="germany">
-                            <img src="https://flagcdn.com/w20/de.png" class="flag" alt="Germany Flag">Germany
-                        </option>
-                        <option value="france">
-                            <img src="https://flagcdn.com/w20/fr.png" class="flag" alt="France Flag">France
-                        </option>
-                    </select>
-                    <select id='select-flag'>
-                        <option id='flagAF' class='flag option1' value='+93' alt='AF'></option>
-                        <option id='flag' class='flag' value='+55' data-img_src='https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg' alt='BR' selected='selected'></option>
-                        <option>
-                            <img src='https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg'>
-                        </option>
-                    </select>
-                    <input id='phone-number' type='tel' pattern='([0-9]+)' required='required' placeholder='(DDD) 00000-0000' autofocus='autofocus' maxlength='15' value='71900000000'/>
-                </div>
-            </li>
-            <li>
-                <label for='message'>MENSAGEM:</label>
-                <textarea id='message' placeholder='Se desejar, insira uma mensagem para início de conversa'>um texto de exemplo pq é importante ter o que ver na hora de apertar o botão</textarea>
-            </li>
-            <li>
-                <button id='generator-button' class='button' onclick='genLink();'>GERAR LINK</button>
-            </li>
 
-                <div id='result-box' class='textboard display-none'>
-                    <p id='p-link'><a id='a-link' href='' target='_blank'></a></p>
-                    <div id='copy-set'>
-                        <p id='copied-msg' class='display-none'>Copiado</p>
-                        <button id='button-copy' class='material-icon' onclick='getCopy();'><svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#000000'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z'/></svg></button>
-                    </div>
+        <label for='phone'>TELEFONE:</label>
+        <div id='phone'>
+            <div id='country-selection'>
+                <div id='select-selected'>
+                    <img src="https://flagcdn.com/w20/br.png" alt="Brazil Flag">Brazil
+                    <!--<img src="" class="flag" alt=""></div>-->
                 </div>
-                <div id='test'></div>
+                <div id='select-items'></div>
+            </div>                    
+            <input id='phone-number' type='tel' pattern='([0-9]+)' required='required' placeholder='(DDD) 00000-0000' autofocus='autofocus' maxlength='15' value='71900000000'/>
+        </div>
 
-        </ul>
+        <label for='message'>MENSAGEM:</label>
+        <textarea id='message' placeholder='Se desejar, insira uma mensagem para início de conversa' contenteditable='true'>um texto de exemplo pq é importante ter o que ver na hora de apertar o botão</textarea>
+
+        <button id='generator-button' class='button' onclick='genLink();'>GERAR LINK</button>
+
+        <div id='result-box' class='textboard display-none'>
+            <p id='p-link'><a id='a-link' href='' target='_blank'></a></p>
+            <div id='copy-set'>
+                <p id='copied-msg' class='display-none'>Copiado</p>
+                <button id='button-copy' class='material-icon' onclick='getCopy();'><svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#000000'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z'/></svg></button>
+            </div>
+        </div>
     </main>
     <footer id='footer'>
 		<p><a id='author' href='https://links.alanmoreno.com' target='_blank'>Alan Moreno</a> <span class='invert-horizontal'>&#169;</span> <span id='copyleft-year'>2022</span> | <a href='https://www.github.com/morenoalan/whatsapplink' target='_blank'>Repositório</a></p>

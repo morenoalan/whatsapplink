@@ -5,6 +5,7 @@
     touch-action: none;
     border: none;
     outline: none;
+    box-sizing: border-box;
 }
 :root {
     --color-green-one: #1E6F5C;
@@ -63,6 +64,7 @@ main {
     width: 350px;
     border-radius: 20px 20px 0 0;
     background-color: var(--color-white);
+    padding-top: 25px;
 }
 main > * {
     width: 300px;
@@ -75,6 +77,12 @@ main * {
     font-size: var(--font-size);
     font-weight: 500;
     text-decoration: none;
+}
+main > div,
+main > textarea,
+main > button {
+    margin-bottom: 12px;
+    min-height: 40px;
 }
 ul {
     list-style-type: none;
@@ -118,7 +126,65 @@ label {
     margin-bottom: 0;
     height: 20px;
     border-radius: 5px;
+    margin-right: 10px;
 }
+
+/* */
+#country-select {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+}
+
+#select-selected {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#select-selected img {
+    width: 24px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+#select-items {
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    width: 100%;
+    z-index: 99;
+    display: none; /* Escondido por padrão */
+    max-height: 200px; /* Altura máxima para a barra de rolagem */
+    overflow-y: auto; /* Barra de rolagem para ver mais países */
+}
+
+#select-items div {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#select-items img {
+    width: 24px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+#select-items div:hover {
+    background-color: #e9e9e9;
+}
+
+.select-show {
+    display: block; /* Mostrar as opções */
+}
+
+/* */
 input {
     margin-bottom: 0;
     margin-left: 5px;
@@ -128,8 +194,7 @@ input {
     width: 100%;
 }
 textarea {
-    height: 60px;
-    width: auto;
+    height: 80px;
     resize: none;
     padding-top: 5px;
     padding-left: 5px;
@@ -145,12 +210,11 @@ textarea {
     color: var(--color-white);
     font-size: 16px;
     font-weight: 900;
-    height: 40px;
+    height: 50px;
     letter-spacing: 0.5px;
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 3px var(--color-gray-two);
-    margin-bottom: 12px;
 }
 .button:hover {
     filter: blur(80%);
@@ -176,7 +240,7 @@ textarea {
     flex-direction: row;
     justify-content: space-between;
     width: 285.2px;
-    height: 100%;
+    height: auto;
 }
 #p-link {
     left: 0;
@@ -215,6 +279,7 @@ textarea {
 .material-icon:active {
     transform: translateY(1px);
 }
+
 footer {
     display: flex;
     justify-content: center;
@@ -239,615 +304,4 @@ footer * {
 }
 .pointer-events-none {
     pointer-events: none;
-}
-/*
-option > img {
-    width: 10px;
-    height: 10px;
-}
-*/
-select {
-    padding: 10px;
-    font-size: 16px;
-}
-option {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-}
-.flag {
-    width: 24px;
-    height: 16px;
-    margin-right: 10px;
-}
-
-/*
-option {
-    padding: 5px;
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    background-position: left center;
-    padding-left: 30px;
-}
-.option1 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg";
-}
-.option2 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg";
-}
-.option3 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_%C3%85land.svg";
-}
-.option4 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg";
-}
-.option5 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg";
-}
-.option6 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/87/Flag_of_American_Samoa.svg";
-}
-.option7 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Andorra.svg";
-}
-.option8 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg";
-}
-.option9 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Anguilla.svg";
-}
-.option10 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Proposed_flag_of_Antarctica_(Graham_Bartram).svg";
-}
-.option11 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg";
-}
-.option12 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg";
-}
-.option13 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg";
-}
-.option14 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Aruba.svg";
-}
-.option15 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_(converted).svg";
-}
-.option16 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Austria.svg";
-}
-.option17 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg";
-}
-.option18 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg";
-}
-.option19 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg";
-}
-.option20 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg";
-}
-.option21 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg";
-}
-.option22 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/85/Flag_of_Belarus.svg";
-}
-.option23 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Belgium.svg";
-}
-.option24 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg";
-}
-.option25 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg";
-}
-.option26 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bermuda.svg";
-}
-.option27 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg";
-}
-.option28 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Venezuela.svg";
-}
-.option29 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg";
-}
-.option30 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg";
-}
-.option31 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg";
-}
-.option32 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg";
-}
-.option33 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg";
-}
-.option34 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_the_Commissioner_of_the_British_Indian_Ocean_Territory.svg";
-}
-.option35 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Brunei.svg";
-}
-.option36 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Bulgaria.svg";
-}
-.option37 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Burkina_Faso.svg";
-}
-.option38 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/5/50/Flag_of_Burundi.svg";
-}
-.option39 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Cape_Verde.svg";
-}
-.option40 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Cambodia.svg";
-}
-.option41 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg";
-}
-.option42 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_(Pantone).svg";
-}
-.option43 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_the_Cayman_Islands.svg";
-}
-.option44 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_the_Central_African_Republic.svg";
-}
-.option45 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_of_Chad.svg";
-}
-.option46 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg";
-}
-.option47 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People's_Republic_of_China.svg";
-}
-.option48 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/67/Flag_of_Christmas_Island.svg";
-}
-.option49 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_the_Cocos_(Keeling)_Islands.svg";
-}
-.option50 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg";
-}
-.option51 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg";
-}
-.option52 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_the_Republic_of_the_Congo.svg";
-}
-.option53 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg";
-}
-.option54 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_the_Cook_Islands.svg";
-}
-.option55 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Costa_Rica.svg";
-}
-.option56 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_C%C3%B4te_d'Ivoire.svg";
-}
-.option57 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg";
-}
-.option58 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Flag_of_Cuba.svg";
-}
-.option59 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_Cura%C3%A7ao.svg";
-}
-.option60 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Cyprus.svg";
-}
-.option61 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg";
-}
-.option62 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_East_Timor.svg";
-}
-.option63 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Denmark.svg";
-}
-.option64 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_Djibouti.svg";
-}
-.option65 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/c/c4/Flag_of_Dominica.svg";
-}
-.option66 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_the_Dominican_Republic.svg";
-}
-.option67 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Flag_of_Ecuador.svg";
-}
-.option68 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg";
-}
-.option69 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_El_Salvador.svg";
-}
-.option70 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Equatorial_Guinea.svg";
-}
-.option71 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Eritrea.svg";
-}
-.option72 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Estonia.svg";
-}
-.option73 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg";
-}
-.option74 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_Falkland_Islands.svg";
-}
-.option75 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Flag_of_the_Faroe_Islands.svg";
-}
-.option76 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Fiji_(3-2).svg";
-}
-.option77 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg";
-}
-.option78 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg";
-}
-.option79 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg";
-}
-.option80 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/db/Flag_of_French_Polynesia.svg";
-}
-.option81 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Flag_of_the_French_Southern_and_Antarctic_Lands.svg";
-}
-.option82 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Gabon_(3-2).svg";
-}
-.option83 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_The_Gambia.svg";
-}
-.option84 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Georgia.svg";
-}
-.option85 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg";
-}
-.option86 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg";
-}
-.option87 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/02/Flag_of_Gibraltar.svg";
-}
-.option88 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg";
-}
-.option89 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_Greenland.svg";
-}
-.option90 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Grenada.svg";
-}
-.option91 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg";
-}
-.option92 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/07/Flag_of_Guam.svg";
-}
-.option93 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Guatemala.svg";
-}
-.option94 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Guernsey.svg";
-}
-.option95 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Guinea.svg";
-}
-.option96 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Guinea-Bissau.svg";
-}
-.option97 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Guyana.svg";
-}
-.option98 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Haiti.svg";
-}
-.option99 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_(converted).svg";
-}
-.option100 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Honduras.svg";
-}
-.option101 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Flag_of_Hong_Kong.svg";
-}
-.option102 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg";
-}
-.option103 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg";
-}
-.option104 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg";
-}
-.option105 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg";
-}
-.option106 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Flag_of_Iran.svg";
-}
-.option107 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Iraq.svg";
-}
-.option108 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Ireland.svg";
-}
-.option109 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg";
-}
-.option110 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg";
-}
-.option111 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg";
-}
-.option112 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg";
-}
-.option113 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg";
-}
-.option114 {
-    background-image: "ttps://upload.wikimedia.org/wikipedia/commons/1/1c/Flag_of_Jersey.svg";
-}
-.option115 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg";
-}
-.option116 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kazakhstan.svg";
-}
-.option117 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg";
-}
-.option118 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kiribati.svg";
-}
-.option119 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg";
-}
-.option120 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Flag_of_Kosovo.svg";
-}
-.option121 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg";
-}
-.option122 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_of_Kyrgyzstan.svg";
-}
-.option123 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Laos.svg";
-}
-.option124 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Latvia.svg";
-}
-.option125 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg";
-}
-.option126 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_Lesotho.svg";
-}
-.option127 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_Liberia.svg";
-}
-.option128 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Libya.svg";
-}
-.option129 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Liechtenstein.svg";
-}
-.option130 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Lithuania.svg";
-}
-.option131 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_Luxembourg.svg";
-}
-.option132 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/63/Flag_of_Macau.svg";
-}
-.option133 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_North_Macedonia.svg";
-}
-.option134 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Madagascar.svg";
-}
-.option135 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Flag_of_Malawi.svg";
-}
-.option136 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg";
-}
-.option137 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Maldives.svg";
-}
-.option138 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Mali.svg";
-}
-.option139 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Malta.svg";
-}
-.option140 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_the_Isle_of_Man.svg";
-}
-.option141 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_the_Marshall_Islands.svg";
-}
-.option142 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg";
-}
-.option143 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Mauritania.svg";
-}
-.option144 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Mauritius.svg";
-}
-.option145 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg";
-}
-.option146 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg";
-}
-.option147 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Flag_of_the_Federated_States_of_Micronesia.svg";
-}
-.option148 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Moldova.svg";
-}
-.option149 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Monaco.svg";
-}
-.option150 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Mongolia.svg";
-}
-.option151 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Montenegro.svg";
-}
-.option152 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Montserrat.svg";
-}
-.option153 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg";
-}
-.option154 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg";
-}
-.option155 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Namibia.svg";
-}
-.option156 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/30/Flag_of_Nauru.svg";
-}
-.option157 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg";
-}
-.option158 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg";
-}
-.option159 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_FLNKS.svg";
-}
-.option160 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg";
-}
-.option161 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Nicaragua.svg";
-}
-.option162 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/f4/Flag_of_Niger.svg";
-}
-.option163 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg";
-}
-.option164 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Niue.svg";
-}
-.option165 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Norfolk_Island.svg";
-}
-.option166 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Flag_of_North_Korea.svg";
-}
-.option167 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Flag_of_the_Northern_Mariana_Islands.svg";
-}
-.option168 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg";
-}
-.option169 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Oman.svg";
-}
-.option170 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg";
-}
-.option171 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Palau.svg";
-}
-.option172 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg";
-}
-.option173 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Panama.svg";
-}
-.option174 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Papua_New_Guinea.svg";
-}
-.option175 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg";
-}
-.option176 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Peru.svg";
-}
-.option177 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_the_Philippines.svg";
-}
-.option178 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_the_Pitcairn_Islands.svg";
-}
-.option179 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg";
-}
-.option180 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg";
-}
-.option181 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/2/28/Flag_of_Puerto_Rico.svg";
-}
-.option182 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg";
-}
-.option183 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg";
-}
-.option184 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg";
-}
-.option185 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg";
-}
-.option186 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Rwanda.svg";
-}
-.option187 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg";
-}
-.option188 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg";
-}
-.option189 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Saint_Kitts_and_Nevis.svg";
-}
-.option190 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Saint_Lucia.svg";
-}
-.option191 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg";
-}
-.option192 {
-    background-image: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg";
-}
-.option193 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Flag_of_Saint_Vincent_and_the_Grenadines.svg";
-}
-.option194 {
-    background-image: "https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Samoa.svg"";
 }
