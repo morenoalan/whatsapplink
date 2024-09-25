@@ -6,6 +6,7 @@ const selectItems = document.querySelector('#select-items');
 // Contagem de países atualmente exibidos
 let countriesLoaded = 20;
 
+
 // Função para carregar países
 function loadCountries(startIndex, endIndex) {
     const fragment = document.createDocumentFragment();

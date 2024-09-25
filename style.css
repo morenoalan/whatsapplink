@@ -139,7 +139,7 @@ label {
 #select-selected {
     background-color: #f9f9f9;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -233,13 +233,7 @@ textarea {
     border-radius: 5px;
     border-right: 0;
     background-color: transparent;
-    width: 290px;
-}
-#result-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 285.2px;
+    width: 300px;
     height: auto;
 }
 #p-link {
