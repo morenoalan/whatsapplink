@@ -155,10 +155,10 @@ label {
 #select-items {
     position: absolute;
     background-color: #f9f9f9;
+    color: black;
     border: 1px solid #ccc;
     width: 100%;
     z-index: 99;
-    display: none; /* Escondido por padrão */
     max-height: 200px; /* Altura máxima para a barra de rolagem */
     overflow-y: auto; /* Barra de rolagem para ver mais países */
 }
@@ -178,10 +178,6 @@ label {
 
 #select-items div:hover {
     background-color: #e9e9e9;
-}
-
-.select-show {
-    display: block; /* Mostrar as opções */
 }
 
 /* */

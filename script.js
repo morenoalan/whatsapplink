@@ -1,13 +1,12 @@
 document.getElementById('copyleft-year').innerHTML =  new Date().getUTCFullYear();
 
-// Elemento da lista de países
+// Country list element
 const selectItems = document.querySelector('#select-items');
 
-// Contagem de países atualmente exibidos
+// Count of countries currently displayed
 let countriesLoaded = 20;
 
-
-// Função para carregar países
+// Function to load countries
 function loadCountries(startIndex, endIndex) {
     const fragment = document.createDocumentFragment();
     for (let i = startIndex; i < endIndex && i < countries.length; i++) {
@@ -18,20 +17,20 @@ function loadCountries(startIndex, endIndex) {
     }
     selectItems.appendChild(fragment);
 
-    // Adiciona evento para alterar o item selecionado e fechar a lista
-    selectItems.querySelectorAll('div').forEach(function (item) {
-        item.addEventListener('click', function () {
+    document.querySelectorAll('#select-items div').forEach(function(item) {
+        item.addEventListener('click', function() {
             let selected = document.querySelector('#select-selected');
-            selected.innerHTML = this.innerHTML;
-            selectItems.classList.remove('select-show'); // Esconde a lista após a seleção
+            selected.innerHTML = this.innerHTML; // Updates the content of the selected
+            document.querySelector('#select-items').classList.add('display-none');
         });
     });
+    
 }
 
-// Carrega os primeiros 20 países
+// Loads the first 20 countries
 loadCountries(0, 20);
 
-// Adiciona evento de rolagem
+// Add scroll event
 selectItems.addEventListener('scroll', function () {
     if (selectItems.scrollTop + selectItems.clientHeight >= selectItems.scrollHeight - 100) {
         if (countriesLoaded < countries.length) {
@@ -40,26 +39,17 @@ selectItems.addEventListener('scroll', function () {
         }
     }
 });
-// Abrir/fechar a lista ao clicar no elemento selecionado
+// Open/close list when clicking on selected element
 document.querySelector('#select-selected').addEventListener('click', function() {
     let items = document.querySelector('#select-items');
-    items.classList.toggle('select-show'); // Mostra ou esconde as opções
+    items.classList.toggle('display-none');
 });
 
-// Alterar o item selecionado e fechar a lista
-document.querySelectorAll('#select-items div').forEach(function(item) {
-    item.addEventListener('click', function() {
-        let selected = document.querySelector('#select-selected');
-        selected.innerHTML = this.innerHTML; // Atualiza o conteúdo do selecionado
-        document.querySelector('#select-items').classList.remove('select-show'); // Esconde a lista após a seleção
-    });
-});
-
-// Fechar a lista ao clicar fora
+// Close list when clicking outside
 document.addEventListener('click', function(event) {
     const selectBox = document.querySelector('#country-selection');
     if (!selectBox.contains(event.target)) {
-        document.querySelector('#select-items').classList.remove('select-show');
+        document.querySelector('#select-items').classList.add('display-none');
     }
 });
 
