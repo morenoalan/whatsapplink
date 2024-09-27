@@ -12,20 +12,21 @@ function loadCountries(startIndex, endIndex) {
     for (let i = startIndex; i < endIndex && i < countries.length; i++) {
         const countryDiv = document.createElement('div');
         countryDiv.setAttribute('data-value', countries[i].name.toLowerCase());
-        countryDiv.innerHTML = `<img src="${countries[i].flag}" alt="${countries[i].name} Flag">${countries[i].name}`;
+        countryDiv.innerHTML = `<img src='${countries[i].flag}' alt='${countries[i].iso2}' class='flag' />${countries[i].name}`;
         fragment.appendChild(countryDiv);
     }
     selectItems.appendChild(fragment);
 
-    document.querySelectorAll('#select-items div').forEach(function(item) {
+    selectItems.querySelectorAll('div').forEach(function(item) {
         item.addEventListener('click', function() {
             let selected = document.querySelector('#select-selected');
-            selected.innerHTML = this.innerHTML; // Updates the content of the selected
+            selected.innerHTML = this.querySelector('img').outerHTML; // Updates the content of the selected
             document.querySelector('#select-items').classList.add('display-none');
         });
     });
-    
 }
+
+document.querySelector('#select-selected').innerHTML = `<img src='${countries[32].flag}' alt='${countries[32].iso2}' class='flag' />`;
 
 // Loads the first 20 countries
 loadCountries(0, 20);
@@ -76,7 +77,7 @@ function genLink() {
         return;
     }
 
-    let flagSelected = document.getElementById('flag').getAttribute('alt');
+    let flagSelected = document.querySelector('#select-selected img').getAttribute('alt');
     console.log(flagSelected.id);
     let country = countries.find(item => item.iso2 == flagSelected);
     let idd = country.idd.replace(/[^\d]/gim, "");
@@ -137,3 +138,58 @@ function updatePhoneNumber() {
         console.log(replacePhoneNumber);
     }
 }
+
+// drag scrolling
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollableDivs = document.querySelectorAll('.scrollable');
+    
+    scrollableDivs.forEach(scrollableDiv => {
+        let isDown = false;
+        let startY;
+        let scrollTop;
+    
+        scrollableDiv.addEventListener('mousedown', (e) => {
+            isDown = true;
+            scrollableDiv.classList.add('active');
+            startY = e.pageY - scrollableDiv.offsetTop;
+            scrollTop = scrollableDiv.scrollTop;
+        });
+    
+        scrollableDiv.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollableDiv.classList.remove('active');
+        });
+    
+        scrollableDiv.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollableDiv.classList.remove('active');
+        });
+    
+        scrollableDiv.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const y = e.pageY - scrollableDiv.offsetTop;
+            const walk = (y - startY) * 3; // Scroll speed
+            scrollableDiv.scrollTop = scrollTop - walk;
+        });
+    
+        // Mobile touch
+        scrollableDiv.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startY = e.touches[0].pageY - scrollableDiv.offsetTop;
+            scrollTop = scrollableDiv.scrollTop;
+        });
+    
+        scrollableDiv.addEventListener('touchend', () => {
+            isDown = false;
+        });
+    
+        scrollableDiv.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const y = e.touches[0].pageY - scrollableDiv.offsetTop;
+            const walk = (y - startY) * 3; // Scroll speed
+            scrollableDiv.scrollTop = scrollTop - walk;
+        });
+    });
+});
