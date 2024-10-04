@@ -124,8 +124,8 @@ label {
 }
 .flag {
     margin-bottom: 0;
-    height: 20px;
-    border-radius: 5px;
+    height: 16px;
+    border-radius: 0px;
     margin-right: 10px;
 }
 
@@ -133,12 +133,12 @@ label {
 #country-select {
     position: relative;
     display: inline-block;
-    width: 200px;
+    /*width: 120px;*/
 }
 
 #select-selected {
-    background-color: #f9f9f9;
-    padding: 10px;
+    background-color: transparent;
+    padding: 0px;
     border: none;
     cursor: pointer;
     display: flex;
@@ -147,9 +147,9 @@ label {
 }
 
 #select-selected img {
-    width: 24px;
-    height: 16px;
-    margin-right: 10px;
+    /*width: 24px;*/
+    /*height: 16px;*/
+    /*margin-right: 10px;*/
 }
 
 #select-items {
